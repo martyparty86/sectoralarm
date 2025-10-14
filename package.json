@@ -1,7 +1,7 @@
 {
   "name": "sectoralarm",
-  "version": "2.1.2",
-  "description": "A simple Node.js library to check the status and history of Swedish Sector Alarm sites. Library also includes a notify functionality that executes a callback as the alarm status changes. This library uses https://minasidor.sectoralarm.se, and is intended for Swedish Sector Alarm customers.",
+  "version": "3.0.0",
+  "description": "A modern Node.js library to check the status and history of Sector Alarm sites using OAuth 2.0 authentication. Library supports checking status, history, and controlling alarm and connected devices. Now uses secure OAuth 2.0 authentication through Auth0 instead of legacy username/password authentication.",
   "main": "./lib/sectoralarm.js",
   "directories": {
     "lib": "lib"
