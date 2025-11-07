@@ -43,7 +43,7 @@ Account information is your e-mail and password used when creating an account wi
 
 ### SiteId
 
-To find out your siteId, browse to <https://mypagesapi.sectoralarm.net>. Login using your accounts e-mail and password. After you have been authenticated, you can have a look at the URL in your browser. At the end of the URL you will find your SiteId. Example .../#!/systems/01234567
+To find out your siteId, browse to <https://minasidor.sectoralarm.se>. Login using your accounts e-mail and password. After you have been authenticated, you can have a look at the URL in your browser. At the end of the URL you will find your SiteId. Example .../#!/systems/01234567
 
 ### Code
 
@@ -75,7 +75,7 @@ settings.jsonOutput = false;
 settings.numberOfRetries = 4;
 settings.retryDelayInMs = 4500;
 
-sectoralarm.connect(email,password,siteId, settings)
+sectoralarm.connect(email, password, siteId, settings)
     .then(async (site) => {
         await site.info()
             .then(console.log);
@@ -121,19 +121,31 @@ sectoralarm.connect(email,password,siteId, settings)
 
     })
     .catch(error => {
-        console.log(error.message);
-        console.log(error.code);
+        console.log('Error:', error.message);
+        console.log('Code:', error.code);
     });
 
-sectoralarm.connect(email,password,siteId)
-    .then(site => {
-        return site.status();
-    })
+sectoralarm.connect(email, password, siteId)
+    .then(site => site.status())
     .then(console.log)
     .catch(error => {
-        console.log(error.message);
-        console.log(error.code);
-    })
+        console.log('Error:', error.message);
+        console.log('Code:', error.code);
+    });
+```
+
+### Testing Your Setup
+
+Use the included test script:
+
+```bash
+# Set your credentials
+export SECTOR_ALARM_EMAIL="your-email@example.com"
+export SECTOR_ALARM_PASSWORD="your-password"
+export SECTOR_ALARM_SITE_ID="your-site-id"
+
+# Run the test
+node test_oauth.js
 ```
 
 ## Error messages
